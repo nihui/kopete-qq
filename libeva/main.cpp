@@ -15,13 +15,10 @@ int main( int argc, char* argv[] )
 
     /// qq 2010 sp3.1
     EvaPacket::setVersion( 0x1f57 );
-    EvaPacket::setQQNumber( 421013644 );
+    EvaPacket::setQQNumber( 1234/** FIXME */ );
 
 //     EvaNetwork* s = new EvaNetwork;
 //     s->login();
-
-    EvaUHManager* s = new EvaUHManager;
-    s->requestUHImage( 839028090 );
 
     return app.exec();
 }

@@ -11,6 +11,7 @@ class SendImPacket : public SessionOutPacket
     public:
         explicit SendImPacket();
         virtual ~SendImPacket();
+        void setSender( unsigned int sender ) { m_sender = sender; }
         void setReceiver( unsigned int receiver ) { m_receiver = receiver; }
         void setFontColor( unsigned int rgb ) { m_fontColor = rgb; }
         void setFontSize( unsigned char fontSize ) { m_fontSize = fontSize; }
@@ -21,6 +22,7 @@ class SendImPacket : public SessionOutPacket
     protected:
         virtual void fillSessionBody( unsigned char* buf, int* pos );
     private:
+        unsigned int m_sender;
         unsigned int m_receiver;
         unsigned int m_fontColor;
         unsigned char m_fontSize;

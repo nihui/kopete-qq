@@ -8,8 +8,11 @@ class GetLevelPacket : public SessionOutPacket
     public:
         explicit GetLevelPacket();
         virtual ~GetLevelPacket();
+        void setQQId( unsigned int qq ) { m_QQId = qq; }
     protected:
         virtual void fillSessionBody( unsigned char* buf, int* pos );
+    private:
+        unsigned int m_QQId;
 };
 
 class GetLevelReplyPacket : public SessionInPacket

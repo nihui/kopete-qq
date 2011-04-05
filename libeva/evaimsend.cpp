@@ -9,6 +9,8 @@ SendImPacket::SendImPacket() : SessionOutPacket()
 {
     m_command = 0x00cd;
 
+    m_sender = 0;
+    m_receiver = 0;
     m_fontColor = 0x00000000;
     m_fontSize = 0x09;
     /// FIXME  retrieve from global settings
@@ -24,11 +26,11 @@ SendImPacket::~SendImPacket()
 
 void SendImPacket::fillSessionBody( unsigned char* buf, int* pos )
 {
-    /// qq id  FIXME
-    fill4( buf, pos, 421013644 );
+    /// qq id
+    fill4( buf, pos, m_sender );
 
     /// buddy qq id
-    fill4( buf, pos, m_receiver );//839028090 );
+    fill4( buf, pos, m_receiver );
 
     /// unknown fixed
     const unsigned char ff[16] = {
@@ -43,11 +45,11 @@ void SendImPacket::fillSessionBody( unsigned char* buf, int* pos )
     /// qq version
     fill2( buf, pos, EvaPacket::version() );
 
-    /// qq id  FIXME
-    fill4( buf, pos, 421013644 );
+    /// qq id
+    fill4( buf, pos, m_sender );
 
     /// buddy qq id
-    fill4( buf, pos, m_receiver );//839028090 );
+    fill4( buf, pos, m_receiver );
 
     /// md5(qqid + sessionKey)
     fillN( buf, pos, sessionMd5, 16 );
@@ -118,10 +120,10 @@ void SendImPacket::fillSessionBody( unsigned char* buf, int* pos )
 
     /// size of font name
     unsigned short fontNameLen = strlen( (char*)m_fontName );
-    fill2( buf, pos, fontNameLen );//0x000c );
+    fill2( buf, pos, fontNameLen );
 
     /// font name
-    fillN( buf, pos, m_fontName, fontNameLen );// 12 );
+    fillN( buf, pos, m_fontName, fontNameLen );
 
     /// fixed zero 00 00
     zeroN( buf, pos, 2 );

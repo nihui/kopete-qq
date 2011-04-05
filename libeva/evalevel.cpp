@@ -6,6 +6,8 @@
 GetLevelPacket::GetLevelPacket() : SessionOutPacket()
 {
     m_command = 0x005c;
+
+    m_QQId = 0;
 }
 
 GetLevelPacket::~GetLevelPacket()
@@ -18,7 +20,7 @@ void GetLevelPacket::fillSessionBody( unsigned char* buf, int* pos )
     fill1( buf, pos, 0x88 );
 
     /// qq id
-    fill4( buf, pos, 421013644 );
+    fill4( buf, pos, m_QQId );
 
     /// fixed 0x00
     fill1( buf, pos, 0x00 );
