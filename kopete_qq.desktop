@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Service
+X-Kopete-Version=1000900
+Icon=qq_protocol
+X-KDE-ServiceTypes=Kopete/Protocol
+X-KDE-Library=kopete_qq
+X-Kopete-Messaging-Protocol=messaging/qq
+X-KDE-PluginInfo-Author=Ni Hui
+X-KDE-PluginInfo-Email=shuizhuyuanluo@126.com
+X-KDE-PluginInfo-Name=kopete_qq
+X-KDE-PluginInfo-Version=0.9.0
+X-KDE-PluginInfo-Website=http://kopete.kde.org
+X-KDE-PluginInfo-Category=Protocols
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=false
+Name=QQ
+Name[zh_CN]=QQ
+Comment=QQ 2010sp3.1+
+Comment[zh_CN]=QQ 2010sp3.1+
