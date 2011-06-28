@@ -663,8 +663,8 @@ void VerifyE5ReplyPacket::extractBody( const unsigned char* buf, int* pos, int l
     unsigned char* code = (unsigned char*)malloc( len );
     extractN( buf, pos, code, len );
 
-    unsigned char out[529];
-    int outlen = 529;
+    unsigned char out[1024];
+    int outlen = 1024;
     EvaCrypt::decrypt( code, len, key6, out, &outlen );
     qWarning() << "outlen" << outlen;
 

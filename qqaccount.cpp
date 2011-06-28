@@ -275,9 +275,12 @@ void QQAccount::slotGotBQEntry( unsigned int QQId, unsigned char type, unsigned 
             Kopete::Contact* contact = contacts().value( qunId );
             if ( !contact ) {
                 Kopete::MetaContact* mc = addContact( qunId, qunId, group );
+                contact = contacts().value( qunId );
             }
-            /// qun is always online
-            contact->setOnlineStatus( Kopete::OnlineStatus::Online );
+            if ( contact ) {
+                /// qun is always online
+                contact->setOnlineStatus( Kopete::OnlineStatus::Online );
+            }
         }
         m_groupQQHash.insert( groupId, QQId );
     }
